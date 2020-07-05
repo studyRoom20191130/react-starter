@@ -1,13 +1,15 @@
 {
-  "name": "financial-advice",
+  "name": "study-room",
   "version": "1.0.0",
   "description": "n/a",
   "private": true,
   "scripts": {
     "build": "webpack -p",
+    "start-server": "nodemon server/server.js --watch server/*",
     "clean": "rimraf dist",
     "develop": "webpack-dev-server -d --hot --watch --content-base dist",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"npm run develop\" \"npm run start-server\" --kill-others"
   },
   "keywords": [],
   "author": "",
@@ -40,7 +42,17 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
     "bulma": "^0.8.1",
+    "compression": "^1.7.4",
+    "concurrently": "^5.2.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.2",
+    "express": "^4.17.1",
+    "helmet": "^3.23.3",
+    "nodemon": "^2.0.4",
     "prettier": "^2.0.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"

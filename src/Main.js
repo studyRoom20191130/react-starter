@@ -1,9 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import { formatAmount } from "./utils.js";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faBolt } from "@fortawesome/free-solid-svg-icons";
+import axios from 'axios'
 
 export class Main extends React.Component {
   constructor() {
@@ -17,6 +15,15 @@ export class Main extends React.Component {
         { name: "面" },
       ],
     };
+  }
+  componentDidMount() {
+    axios.get('/api/all')
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
   }
 
   render() {
